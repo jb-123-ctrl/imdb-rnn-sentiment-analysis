@@ -52,7 +52,7 @@ st.sidebar.write("""
 """)
 
 st.sidebar.markdown("---")
-st.sidebar.write("👩‍💻 Built by **Koushali BS**")
+st.sidebar.write("👩‍💻 Built by **jaya bharathi s**")
 st.sidebar.write("🚀 Deep Learning | NLP")
 
 # -----------------------------
@@ -102,3 +102,4 @@ st.markdown(
     "<p style='text-align: center; font-size: 13px;'>Built using TensorFlow, Keras & Streamlit</p>",
     unsafe_allow_html=True
 )
+
