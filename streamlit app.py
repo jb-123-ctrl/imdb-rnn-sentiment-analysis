@@ -36,11 +36,11 @@ def encode_review(text):
         if word in word_index and word_index[word] < vocab_size:
             encoded.append(word_index[word])
         else:
-            encoded.append(2)  # unknown
+            encoded.append(2)  # unknown word
     return encoded
 
 # -----------------------------
-# Sidebar (Professional Touch)
+# Sidebar
 # -----------------------------
 st.sidebar.title("📘 Project Info")
 st.sidebar.write("""
@@ -52,14 +52,17 @@ st.sidebar.write("""
 """)
 
 st.sidebar.markdown("---")
-st.sidebar.write("👩‍💻 Built by **jaya bharathi s**")
+st.sidebar.markdown("👩‍💻 **Built by Jayabharathi S**")
 st.sidebar.write("🚀 Deep Learning | NLP")
 
 # -----------------------------
 # Main UI
 # -----------------------------
 st.markdown("<h1 style='text-align: center;'>🎬 IMDb Movie Review Analyzer</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center;'>Enter a movie review and let the AI predict the sentiment</p>", unsafe_allow_html=True)
+st.markdown(
+    "<p style='text-align: center;'>Enter a movie review and let the AI predict the sentiment</p>",
+    unsafe_allow_html=True
+)
 
 st.markdown("---")
 
@@ -82,12 +85,14 @@ if st.button("🔍 Analyze Sentiment"):
             "pathetic", "waste", "boring", "bad"
         ]
 
+        st.markdown("---")
+        st.subheader("📊 Prediction Result")
+
         if any(word in review.lower() for word in strong_negative_words):
-            st.markdown("---")
-            st.subheader("📊 Prediction Result")
             st.error("😠 **Negative Review**")
             st.progress(95)
             st.write("**Confidence:** 0.95")
+
         else:
             encoded = encode_review(review)
             padded = pad_sequences([encoded], maxlen=maxlen)
@@ -95,10 +100,6 @@ if st.button("🔍 Analyze Sentiment"):
             prediction = model.predict(padded)
             prob = prediction[0][0]
 
-            st.markdown("---")
-            st.subheader("📊 Prediction Result")
-
-            # Improved threshold logic
             if prob >= 0.65:
                 st.success("😊 **Positive Review**")
                 st.progress(int(prob * 100))
@@ -110,7 +111,9 @@ if st.button("🔍 Analyze Sentiment"):
                 st.write(f"**Confidence:** {(1 - prob):.2f}")
 
             else:
-                st.info("😐 **Neutral / Uncertain Sentiment**
+                st.info("😐 **Neutral / Uncertain Sentiment**")
+                st.progress(50)
+                st.write("**Confidence:** 0.50")
 
 # -----------------------------
 # Footer
@@ -120,5 +123,3 @@ st.markdown(
     "<p style='text-align: center; font-size: 13px;'>Built using TensorFlow, Keras & Streamlit</p>",
     unsafe_allow_html=True
 )
-
-
