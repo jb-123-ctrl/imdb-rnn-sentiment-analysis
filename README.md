@@ -25,19 +25,9 @@ The model is trained on the **IMDb Movie Reviews dataset** and deployed as an in
 ---
 
 ## 🧠 Model Architecture
-The project uses a **Simple RNN** with the following layers:
-
-- **Embedding Layer**
-  - Vocabulary size: 10,000
-  - Embedding dimension: 128
-- **Simple RNN Layer**
-  - 128 neurons
-- **Dense Output Layer**
-  - 1 neuron
-  - Sigmoid activation
-
-### Why RNN?
-RNNs are suitable for **sequential text data**, where the order of words matters for understanding sentiment.
+- Embedding Layer (vocab size: 10,000, embedding dim: 128)
+- Simple RNN Layer (128 neurons)
+- Dense Output Layer (1 neuron, sigmoid activation)
 
 ---
 
@@ -51,7 +41,22 @@ RNNs are suitable for **sequential text data**, where the order of words matters
 
 ## 📈 Model Performance
 - **Test Accuracy:** ~75–78%
-- **Loss Function:** Binary Crossentropy
-- **Optimizer:** Adam
+- Optimizer: Adam
+- Loss Function: Binary Crossentropy
 
-> Note: Simple RNNs have limitations in capturing long-term dependencies. More advanced architectures like **LSTM** or
+---
+
+## 🌐 Streamlit Web Application
+- Real-time sentiment prediction
+- Emoji-based feedback
+- Confidence progress bar
+- Clean, interactive UI
+
+---
+
+## ▶️ How to Run Locally
+
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+
