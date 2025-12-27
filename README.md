@@ -7,7 +7,7 @@ The model is trained on the **IMDb Movie Reviews dataset** and deployed as an in
 ---
 
 ## 🚀 Live Demo
-👉 *(Add your Streamlit Cloud link here after deployment)*
+👉 *https://imdb-rnn-sentiment-analysis-crehxwyrmnrtegvplcluvg.streamlit.app/*
 
 ---
 
